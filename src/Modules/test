@@ -1,0 +1,24 @@
+import "./styles.css";
+import React, { useState } from "react";
+import axios from "axios";
+export default function FunComp() {
+  const [payloadState, setPayload] = useState([]);
+ 
+  const adi = async () => {
+    let payload = await fetch("https://fakestoreapi.com/products");
+    setPayload(await payload.json());
+  };
+  adi();
+
+  return (
+    <div>
+      <ul>
+        {payloadState.length >= 1?"" : "...loading"}        {payloadState.map((e) => (
+          <li>{e.title}</li>
+        ))}lkijkiojiojiojiojojoijoijiojiojio
+      </ul>
+    </div>
+  );
+}
+
+export { FunComp };
